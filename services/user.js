@@ -64,7 +64,7 @@ module.exports = {
           .json({ payload: { message: "Invalid password" } });
 
       //login user
-      const token = jwt.sign({ _id: user._id }, process.env.SECRETE);
+      const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
       res.header("auth-token", token);
       res.status(200).json({ payload: { users: user } });
     } catch (error) {

@@ -1,7 +1,7 @@
 const express = require("express");
-const router = require("./services/user");
 const bodyparser = require("body-parser");
 const userRoute = require("./route/userRoute");
+const productRoute = require("./route/productRoute")
 const app = express();
 require("./db");
 
@@ -10,7 +10,8 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: true }));
 
 //Router Middlewares
-app.use("/api", userRoute);
+app.use("/api/user", userRoute);
+app.use("/api/product", productRoute)
 
 //catch 404 error and forward the to error handler
 app.use((req, res, next) => {

@@ -1,8 +1,9 @@
 const Router = require("express").Router();
 const userService = require("../services/user");
-const varify = require("./auth")
+const verify = require("./auth")
 
-Router.route("/users").get(varify,userService.index);
+//With the verify middleware you need to be loggedin
+Router.route("/users").get(verify,userService.index);
 
 Router.route("/login").post(userService.login);
 
